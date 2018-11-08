@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {ISortEvent} from './draggable/sortable-list.directive';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,18 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
   public trappedBoxes = ['Trapped 1', 'Trapped 2'];
+  public sortableList = [
+    'Box 1',
+    'Box 2',
+    'Box 3',
+    'Box 4',
+    'Box 5',
+    'Box 6',
+    'Box 7',
+    'Box 8',
+    'Box 9',
+    'Box 10',
+  ];
 
   public onDragStart() {
     console.log('got drag start');
@@ -20,7 +33,16 @@ export class AppComponent {
     console.log('got drag end');
   }
 
-  public addTrappedBoxes(){
+  public addTrappedBoxes() {
     this.trappedBoxes.push('New trapped');
+  }
+
+  public sort(event: ISortEvent) {
+    const sortableList = [...this.sortableList],
+      swapWith = sortableList[event.newIndex];
+
+    sortableList[event.newIndex] = sortableList[event.currentIndex];
+    sortableList[event.currentIndex] = swapWith;
+    this.sortableList = sortableList;
   }
 }

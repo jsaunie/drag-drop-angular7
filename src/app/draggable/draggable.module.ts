@@ -7,6 +7,8 @@ import {MovableDirective} from './movable.directive';
 import {MovableAreaDirective} from './movable-area.directive';
 import {DraggableHelperDirective} from './draggable-helper.directive';
 import {OverlayModule} from '@angular/cdk/overlay';
+import {SortableListDirective} from './sortable-list.directive';
+import {SortableDirective} from './sortable.directive';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,8 @@ import {OverlayModule} from '@angular/cdk/overlay';
     MovableDirective,
     MovableAreaDirective,
     DraggableHelperDirective,
+    SortableListDirective,
+    SortableDirective,
   ],
   imports: [
     CommonModule,
@@ -26,6 +30,8 @@ import {OverlayModule} from '@angular/cdk/overlay';
     MovableDirective,
     MovableAreaDirective,
     DraggableHelperDirective,
+    SortableListDirective,
+    SortableDirective,
   ],
 })
 export class DraggableModule {

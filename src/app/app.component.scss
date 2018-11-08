@@ -8,9 +8,31 @@
   &.dragging {
     background-color: coral;
   }
+  &.sortable.dragging {
+    background: none;
+    border: 1px dashed black;
+    color: transparent;
+  }
 }
 
-.area{
+.area {
   background-color: #c0ffee;
   padding: 40px;
+}
+
+button {
+  margin-top: 20px;
+}
+
+ul {
+  display: inline-flex;
+  margin: 0;
+  padding: 0;
+  flex-direction: column-reverse;
+
+  &.horizontal {
+    width: 600px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 }
