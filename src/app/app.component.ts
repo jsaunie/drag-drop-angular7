@@ -6,6 +6,7 @@ import {Component} from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  public trappedBoxes = ['Trapped 1', 'Trapped 2'];
 
   public onDragStart() {
     console.log('got drag start');
@@ -17,5 +18,9 @@ export class AppComponent {
 
   public onDragEnd() {
     console.log('got drag end');
+  }
+
+  public addTrappedBoxes(){
+    this.trappedBoxes.push('New trapped');
   }
 }
