@@ -1,44 +1,59 @@
 <h1>Draggable</h1>
 
-<h2>Part 1 - draggable directive</h2>
+<section>
+  <h2>Part 1 - draggable directive</h2>
 
-<div class="box" appDraggable (dragStart)="onDragStart()" (dragMove)="onDragMove($event)" (dragEnd)="onDragEnd()">
-  Draggable non-reactive approach
-</div>
-<div class="box" appDraggableRx (dragStart)="onDragStart()" (dragMove)="onDragMove($event)" (dragEnd)="onDragEnd()">
-  Draggable reactive approach
-</div>
+  <div class="box" appDraggable (dragStart)="onDragStart()" (dragMove)="onDragMove($event)" (dragEnd)="onDragEnd()">
+    Draggable non-reactive approach
+  </div>
+  <div class="box" appDraggableRx (dragStart)="onDragStart()" (dragMove)="onDragMove($event)" (dragEnd)="onDragEnd()">
+    Draggable reactive approach
+  </div>
 
-<h2 appMovable [appMovableReset]="true">Part 2 - movable directive</h2>
+  <h2 appMovable [appMovableReset]="true">Part 2 - movable directive</h2>
 
-<div class="box" appMovable>
   <div class="box" appMovable>
-    Movable & Save last position
-  </div>
-  <div class="box" appMovable [appMovableReset]="true">
-    Movable & Reset position
-  </div>
-</div>
-
-<h2>Part 3 - movable area</h2>
-
-<div class="area" appMovableArea>
-  <div class="box" appMovable *ngFor="let trapped of trappedBoxes">
-    {{ trapped }}
-  </div>
-</div>
-
-<button (click)="addTrappedBoxes()">Add</button>
-
-<h2>Part 4 - the draggable helper</h2>
-
-<div style="overflow: hidden">
-  <div class="box" appDraggable>
-    Drag me !
-
-    <div class="box helper" *appDraggableHelper>
-      Dragging...
+    <div class="box" appMovable>
+      Movable & Save last position
+    </div>
+    <div class="box" appMovable [appMovableReset]="true">
+      Movable & Reset position
     </div>
   </div>
-</div>
 
+  <h2>Part 3 - movable area</h2>
+
+  <div class="area" appMovableArea>
+    <div class="box" appMovable *ngFor="let trapped of trappedBoxes">
+      {{ trapped }}
+    </div>
+  </div>
+
+  <button (click)="addTrappedBoxes()">Add</button>
+
+  <h2>Part 4 - the draggable helper</h2>
+
+  <div style="overflow: hidden">
+    <div class="box" appDraggable>
+      Drag me !
+
+      <div class="box helper" *appDraggableHelper>
+        Dragging...
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section>
+
+  <h2>Part 5 - sortable list</h2>
+
+  <h3>Vertical</h3>
+  <ul appSortableList (sort)="sort($event)">
+    <li class="box" *ngFor="let box of sortableList" appSortable>
+      {{ box }}
+      <div class="box helper" *appDraggableHelper>{{ box }}</div>
+    </li>
+  </ul>
+</section>
