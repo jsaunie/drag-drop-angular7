@@ -56,4 +56,13 @@
       <div class="box helper" *appDraggableHelper>{{ box }}</div>
     </li>
   </ul>
+
+  <h3>Horizontal</h3>
+  <ul class="horizontal" appSortableList (sort)="sort($event)">
+    <li class="box" *ngFor="let box of sortableList" appSortable>
+      {{ box }}
+      <div class="box helper" *appDraggableHelper>{{ box }}</div>
+    </li>
+  </ul>
+
 </section>

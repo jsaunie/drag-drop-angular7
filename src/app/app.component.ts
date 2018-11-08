@@ -8,7 +8,18 @@ import {ISortEvent} from './draggable/sortable-list.directive';
 })
 export class AppComponent {
   public trappedBoxes = ['Trapped 1', 'Trapped 2'];
-  public sortableList = ['Box 1', 'Box 2', 'Box 3', 'Box 4', 'Box 5'];
+  public sortableList = [
+    'Box 1',
+    'Box 2',
+    'Box 3',
+    'Box 4',
+    'Box 5',
+    'Box 6',
+    'Box 7',
+    'Box 8',
+    'Box 9',
+    'Box 10',
+  ];
 
   public onDragStart() {
     console.log('got drag start');
@@ -28,9 +39,9 @@ export class AppComponent {
 
   public sort(event: ISortEvent) {
     const sortableList = [...this.sortableList],
-      swapWith = sortableList[event.nextIndex];
+      swapWith = sortableList[event.newIndex];
 
-    sortableList[event.nextIndex] = sortableList[event.currentIndex];
+    sortableList[event.newIndex] = sortableList[event.currentIndex];
     sortableList[event.currentIndex] = swapWith;
     this.sortableList = sortableList;
   }
