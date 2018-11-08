@@ -8,3 +8,14 @@
 <div class="box" appDraggableRx (dragStart)="onDragStart()" (dragMove)="onDragMove($event)" (dragEnd)="onDragEnd()">
   Draggable reactive approach
 </div>
+
+<h2 appMovable [appMovableReset]="true">Part 2 - movable directive</h2>
+
+<div class="box" appMovable>
+  <div class="box" appMovable>
+    Movable & Save last position
+  </div>
+  <div class="box" appMovable [appMovableReset]="true">
+    Movable & Reset position
+  </div>
+</div>
