@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'drag-directive';
+
+  public onDragStart() {
+    console.log('got drag start');
+  }
+
+  public onDragMove(event: PointerEvent) {
+    console.log('got drag Move :', Math.round(event.clientX), Math.round(event.clientY));
+  }
+
+  public onDragEnd() {
+    console.log('got drag end');
+  }
 }
