@@ -1,7 +1,7 @@
 import {Directive, ElementRef, EventEmitter, HostBinding, HostListener, Output} from '@angular/core';
 
 @Directive({
-  selector: '[appDraggable]'
+  selector: '[appDraggable], [appDroppable]'
 })
 export class DraggableDirective {
 
@@ -11,6 +11,8 @@ export class DraggableDirective {
   @Output() dragStart: EventEmitter<PointerEvent> = new EventEmitter<PointerEvent>();
   @Output() dragMove: EventEmitter<PointerEvent> = new EventEmitter<PointerEvent>();
   @Output() dragEnd: EventEmitter<PointerEvent> = new EventEmitter<PointerEvent>();
+
+  @HostBinding('attr.touch-action') touchAction = 'none';
 
   constructor(public elementRef: ElementRef) {
   }

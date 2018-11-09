@@ -13,6 +13,9 @@
     border: 1px dashed black;
     color: transparent;
   }
+  &.box-helper {
+    pointer-events: none;
+  }
 }
 
 .area {
@@ -34,5 +37,19 @@ ul {
     width: 600px;
     flex-direction: row;
     flex-wrap: wrap;
+  }
+}
+
+.dropzone {
+  padding: 20px;
+  margin: 20px 0;
+  background-color: lightgray;
+  min-height: 200px;
+  border: 1px solid black;
+  &.dropzone-activated {
+    border: 1px solid blue;
+  }
+  &.dropzone-entered {
+    background-color: #efefef;
   }
 }
