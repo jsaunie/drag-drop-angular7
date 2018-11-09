@@ -37,7 +37,7 @@
     <div class="box" appDraggable>
       Drag me !
 
-      <div class="box helper" *appDraggableHelper>
+      <div class="box box-helper" *appDraggableHelper>
         Dragging...
       </div>
     </div>
@@ -53,7 +53,7 @@
   <ul appSortableList (sort)="sort($event)">
     <li class="box" *ngFor="let box of sortableList" appSortable>
       {{ box }}
-      <div class="box helper" *appDraggableHelper>{{ box }}</div>
+      <div class="box box-helper" *appDraggableHelper>{{ box }}</div>
     </li>
   </ul>
 
@@ -61,8 +61,42 @@
   <ul class="horizontal" appSortableList (sort)="sort($event)">
     <li class="box" *ngFor="let box of sortableList" appSortable>
       {{ box }}
-      <div class="box helper" *appDraggableHelper>{{ box }}</div>
+      <div class="box box-helper" *appDraggableHelper>{{ box }}</div>
     </li>
   </ul>
+
+</section>
+
+<section>
+  <h2>Part 6 - the dropzone</h2>
+
+  <div class="box" *ngFor="let box of availableBoxes"
+       appDroppable
+       (dragStart)="currentBox = box">
+    {{ box }}
+    <div class="box box-helper" *appDraggableHelper="">{{ box }} - Helper</div>
+  </div>
+
+  <div class="dropzone" appDropzone
+       (drop)="move(currentBox, dropzone1)"
+       (remove)="move(currentBox, availableBoxes)">
+    <div class="box" *ngFor="let box of dropzone1"
+         appDroppable
+         (dragStart)="currentBox = box">
+      {{ box }}
+      <div class="box box-helper" *appDraggableHelper="">{{ box }} - Helper</div>
+    </div>
+  </div>
+
+  <div class="dropzone" appDropzone
+       (drop)="move(currentBox, dropzone2)"
+       (remove)="move(currentBox, availableBoxes)">
+    <div class="box" *ngFor="let box of dropzone2"
+         appDroppable
+         (dragStart)="currentBox = box">
+      {{ box }}
+      <div class="box box-helper" *appDraggableHelper="">{{ box }} - Helper</div>
+    </div>
+  </div>
 
 </section>

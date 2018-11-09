@@ -1,6 +1,12 @@
 import {Component} from '@angular/core';
 import {ISortEvent} from './draggable/sortable-list.directive';
 
+function remove(item: string, list: string[]) {
+  if (list.indexOf(item) !== -1) {
+    list.splice(list.indexOf(item), 1);
+  }
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -20,6 +26,21 @@ export class AppComponent {
     'Box 9',
     'Box 10',
   ];
+  public availableBoxes = [
+    'Box 1',
+    'Box 2',
+    'Box 3',
+    'Box 4',
+  ];
+  public dropzone1 = [
+    'Box 5',
+    'Box 6',
+  ];
+  public dropzone2 = [
+    'Box 7',
+  ];
+
+  public currentBox?: string;
 
   public onDragStart() {
     console.log('got drag start');
@@ -45,4 +66,13 @@ export class AppComponent {
     sortableList[event.currentIndex] = swapWith;
     this.sortableList = sortableList;
   }
+
+  public move(box: string, array: string[]) {
+    remove(box, this.availableBoxes);
+    remove(box, this.dropzone1);
+    remove(box, this.dropzone2);
+
+    array.push(box);
+  }
+
 }
