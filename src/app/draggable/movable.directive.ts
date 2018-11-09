@@ -19,7 +19,7 @@ export class MovableDirective extends DraggableDirective {
   private startPosition: IPosition;
 
   constructor(private sanitizer: DomSanitizer, public element: ElementRef) {
-    super();
+    super(element);
   }
 
   @HostBinding('style.transform') get transform(): SafeStyle {
